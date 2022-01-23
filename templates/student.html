@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% if possible == True -%}
+	{% if para_one == "Student ID" -%}
+	<head>
+			<meta charset="UTF.8"/>
+			<title> Student Data </title>
+			</head>
+	<body>
+		<h1>Student Details</h1>
+		<table border = "2" id = "student-details-table">
+			<thead>
+				<tr>
+					<th>Student Id</th>
+					<th>Course Id</th>
+					<th>Marks</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in rows%}
+					{% if i[0] == para_two -%}
+					<tr>
+						<td>{{i[0]}}</td>
+						<td>{{i[1]}}</td>
+						<td>{{i[2]}}</td>
+					</tr>
+					{% endif %}
+				{% endfor %}
+				<tr>
+					<td id = "tot" colspan="2" style = "text-align:center">Total Marks </td>
+					<td> {{sum}} </td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+		<a href = "/">Go Back</a>
+	</body>
+	{% elif para_one == "Course ID" -%}
+	<head>
+			<meta charset="UTF.8"/>
+			<title> Student Data </title>
+			</head>
+	<body>
+		<h1>Student Details</h1>
+		<table border = "2" id = "course-details-table">
+			<thead>
+				<tr>
+					<th>Average Marks</th>
+					<th>Maximum Marks</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{avg}}</td>
+					<td>{{maxx}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<img src = "static/image.png">
+		<br><br>
+		<a href = "/">Go Back</a>
+	</body>
+	{% endif %}
+{% else -%}
+<head>
+		<meta charset="UTF.8"/>
+		<title> Something Went Wrong </title>
+		</head>
+<body>
+	<h1>Wrong Inputs</h1>
+	Something went wrong
+	<br><br>
+	<a href = "/">Go Back</a>
+</body>
+
+{% endif %}
+</html
